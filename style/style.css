@@ -1,0 +1,226 @@
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+body {
+  --section-padding: 2rem;
+  position: relative;
+  background: #dfe9f6;
+}
+body .sidebar {
+  scrollbar-width: none;
+}
+body .sidebar::-webkit-scrollbar {
+  display: none;
+}
+body .content {
+  margin-left: 300px;
+}
+
+.sidebar {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-padding);
+  overflow: auto;
+}
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  padding: 1rem calc(var(--section-padding) - 1rem) 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: inherit;
+}
+.sidebar .logo img {
+  width: 70px;
+}
+.sidebar .links li a {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem var(--section-padding);
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.sidebar .links li:hover a {
+  background: #dfe9f6;
+}
+
+.content header {
+  display: grid;
+  grid-template-columns: 1fr 5% max-content;
+  gap: var(--section-padding);
+  padding: 1rem var(--section-padding);
+  background: #dfe9f6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  position: sticky;
+  top: 0;
+  left: 300px;
+  z-index: 1;
+}
+.content header .search-bar {
+  display: flex;
+  gap: var(--section-padding);
+  align-items: center;
+}
+.content header .search-bar input {
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  background: #c9cdd4;
+  padding: 0.3em 1.5em;
+  width: 50%;
+  transition: 0.35s;
+}
+.content header .search-bar input:focus {
+  width: 100%;
+  background: #babfc5;
+}
+.content header .notification {
+  font-size: 1.2rem;
+  color: #565656;
+  transition: 0.1s;
+}
+.content header .notification:hover {
+  color: #000;
+}
+.content header .profile {
+  gap: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.content header .profile-name {
+  white-space: nowrap;
+}
+.content header .profile-avatar {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+.content main {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  grid-template-rows: max-content 1fr;
+  gap: 2rem;
+  padding: var(--section-padding);
+}
+.content main .your-projects {
+  grid-row: span 2;
+}
+.content main .your-projects h2 {
+  margin-bottom: 1rem;
+}
+.content main .your-projects .project-wrapper {
+  -moz-column-count: 2;
+       column-count: 2;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+.content main .your-projects .project-wrapper .project {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  padding: 1rem 1rem 3rem 2rem;
+  border-radius: 5px;
+  background: #fff;
+  position: relative;
+  transition: 0.1s;
+  cursor: pointer;
+  overflow: hidden;
+}
+.content main .your-projects .project-wrapper .project:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+.content main .your-projects .project-wrapper .project::after {
+  content: "";
+  background: #565656;
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.content main .your-projects .project-wrapper .project:hover {
+  scale: 1.02;
+}
+.content main .your-projects .project-wrapper .project-name a:hover {
+  text-decoration: underline;
+}
+.content main .your-projects .project-wrapper .project-buttons {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
+.content main .your-projects .project-wrapper .project-buttons button {
+  border: none;
+  margin: 0 0 0 0.5em;
+  background: inherit;
+  color: #565656;
+  cursor: pointer;
+}
+.content main .your-projects .project-wrapper .project-buttons button:hover {
+  color: #000;
+}
+.content main .annoucements h2 {
+  margin-bottom: 1rem;
+}
+.content main .annoucements-wrapper {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+  background: #fff;
+}
+.content main .annoucements-wrapper .annoucement {
+  position: relative;
+  padding: 1rem;
+}
+.content main .annoucements-wrapper .annoucement:hover .annoucement-title {
+  text-decoration: underline;
+}
+.content main .annoucements-wrapper .annoucement:not(:last-of-type)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50%;
+  height: 2px;
+  width: 50%;
+  background: #d4d4d4;
+}
+.content main .trending h2 {
+  margin-bottom: 1rem;
+}
+.content main .trending-wrapper {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+  padding: 1rem;
+  background: #fff;
+}
+.content main .trending-wrapper .profile {
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  gap: 0 1rem;
+}
+.content main .trending-wrapper .profile:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+.content main .trending-wrapper .profile-avatar {
+  grid-row: span 2;
+  justify-self: center;
+  align-self: center;
+  border-radius: 50%;
+}
+.content main .trending-wrapper .profile-project {
+  color: #9e9e9e;
+}/*# sourceMappingURL=style.css.map */
